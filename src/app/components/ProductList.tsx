@@ -179,6 +179,7 @@ export default function ProductList({ initialProducts }: ProductListProps) {
                     <header style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '24px' }}>
                       {/* Left Metadata Column */}
                       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px', minWidth: '88px' }}>
+                        <span className="dimmed" style={{ fontSize: '12px', letterSpacing: '0.1em' }}>{product.category}</span>
                         <time dateTime={product.date} style={{ 
                           fontFamily: 'monospace', 
                           color: 'var(--secondary-ink)', 
@@ -188,7 +189,6 @@ export default function ProductList({ initialProducts }: ProductListProps) {
                         }}>
                           {product.date.replace(/-/g, '.')}
                         </time>
-                        <span className="dimmed" style={{ fontSize: '12px', letterSpacing: '0.1em' }}>{product.category}</span>
                       </div>
 
                       {/* Right Title Column */}
