@@ -1,28 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@600;700&display=swap');
-
 :root {
-  --base-surface: #fbf9f6;
-  --primary-ink: #3d4451;
-  --secondary-ink: #757d8a;
-  --sole-accent: #82a1b9;
-  --subtle-border: rgba(61, 68, 81, 0.2);
-  --subtle-fill: rgba(61, 68, 81, 0.08);
-  --stroke-tint: rgba(61, 68, 81, 0.6);
+  --base-surface: #ffffff;
+  --primary-ink: #111111;
+  --secondary-ink: #6b7280;
+  --sole-accent: #111111;
+  --subtle-border: rgba(0, 0, 0, 0.08);
+  --subtle-fill: rgba(0, 0, 0, 0.04);
+  --stroke-tint: rgba(0, 0, 0, 0.4);
 }
 
 html.dark {
-  --base-surface: #1c1f26;
-  --primary-ink: #d2d6dd;
-  --secondary-ink: #a0a7b4;
-  --sole-accent: #9cb4cd;
-  --subtle-border: rgba(210, 214, 221, 0.2);
-  --subtle-fill: rgba(210, 214, 221, 0.08);
-  --stroke-tint: rgba(210, 214, 221, 0.6);
-}
-
-html.dark img:not(.grayscale) {
-  /* Dim images slightly in dark mode to prevent them from being too glaring */
-  filter: brightness(0.85) contrast(1.1);
+  --base-surface: #0f0f0f;
+  --primary-ink: #f0f0f0;
+  --secondary-ink: #9ca3af;
+  --sole-accent: #f0f0f0;
+  --subtle-border: rgba(255, 255, 255, 0.1);
+  --subtle-fill: rgba(255, 255, 255, 0.05);
+  --stroke-tint: rgba(255, 255, 255, 0.4);
 }
 
 * {
@@ -34,11 +27,11 @@ html.dark img:not(.grayscale) {
 body {
   background-color: var(--base-surface);
   color: var(--primary-ink);
-  font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
-  font-weight: 300;
-  line-height: 1.85;
+  font-family: var(--font-inter), 'PingFang SC', 'Noto Sans SC', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
   text-align: left;
-  font-size: 16px;
+  font-size: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -46,41 +39,41 @@ body {
 
 @media (min-width: 1024px) {
   body {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Noto Serif SC', 'Songti SC', serif;
+  font-family: var(--font-inter), 'PingFang SC', 'Noto Sans SC', sans-serif;
   font-weight: 600;
   color: var(--primary-ink);
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
 
 h1 {
-  font-size: clamp(28px, 4vw, 40px);
-  line-height: 1.2;
+  font-size: clamp(22px, 3vw, 28px);
+  line-height: 1.25;
   font-weight: 700;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
 }
 
 h2 {
-  font-size: clamp(20px, 3vw, 24px);
-  line-height: 1.33;
+  font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.4;
   font-weight: 600;
-  margin-top: 1.5em;
-  margin-bottom: 0.8em;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 h3 {
-  font-size: clamp(18px, 2vw, 20px);
+  font-size: clamp(15px, 1.5vw, 16px);
   line-height: 1.4;
-  margin-top: 2em;
-  margin-bottom: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 p {
-  margin-bottom: 1.75em;
+  margin-bottom: 1.5em;
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -94,105 +87,37 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 2em 0;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .cover-image {
   width: 100%;
-  filter: grayscale(100%);
-  transition: filter 0.5s ease;
-  margin-bottom: 32px;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .cover-image:hover {
-    filter: grayscale(0%);
-  }
+  border-radius: 6px;
 }
 
 .core-zone {
-  max-width: 896px;
+  max-width: 768px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 .terminal-padding {
-  padding-bottom: clamp(96px, 10vh, 160px);
+  padding-bottom: clamp(64px, 8vh, 120px);
 }
 
 strong {
-  font-family: 'Noto Serif SC', 'Songti SC', serif;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--sole-accent);
+  font-weight: 700;
+  color: inherit;
 }
 
 .dimmed {
   color: var(--secondary-ink);
-  font-weight: 600;
-  letter-spacing: 0.05em;
 }
 
 hr {
-  margin: clamp(64px, 8vw, 96px) 0;
+  margin: clamp(40px, 5vw, 64px) 0;
   border: none;
-  border-top: 1px dashed var(--subtle-border);
-}
-
-/* Epigraph */
-.epigraph {
-  text-align: left;
-  font-style: italic;
-  color: var(--secondary-ink);
-  margin: 24px 0 32px 0;
-  font-size: clamp(16px, 2vw, 18px);
-}
-
-/* Section Break */
-.section-break {
-  margin: clamp(64px, 8vw, 96px) 0;
-  position: relative;
-  text-align: center;
-}
-.section-break::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  border-top: 1px dashed var(--subtle-border);
-  z-index: 1;
-}
-.section-break-title {
-  display: inline-block;
-  position: relative;
-  z-index: 2;
-  background-color: var(--base-surface);
-  padding: 0 24px;
-  font-family: 'Noto Serif SC', 'Songti SC', serif;
-  font-size: clamp(28px, 4vw, 40px);
-  font-weight: 700;
-  color: var(--primary-ink);
-  text-shadow: 0 0 12px var(--base-surface), 0 0 16px var(--base-surface);
-}
-.section-break-watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20vw;
-  font-weight: 700;
-  color: var(--primary-ink);
-  opacity: 0.04;
-  z-index: 0;
-  user-select: none;
-  white-space: nowrap;
-}
-@media (max-width: 480px) {
-  .section-break::before {
-    display: none;
-  }
+  border-top: 1px solid var(--subtle-border);
 }
 
 /* Dual Column */
@@ -204,7 +129,7 @@ hr {
 .dual-column > * {
   flex: 1;
 }
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .dual-column {
     flex-direction: column;
   }
@@ -221,6 +146,51 @@ button {
 
 @media (hover: hover) and (pointer: fine) {
   button:hover, a:hover {
-    opacity: 0.7;
+    opacity: 0.6;
   }
+}
+
+/* Markdown content inside product articles */
+.markdown-content p {
+  color: var(--secondary-ink);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 0.75em;
+}
+.markdown-content p:last-child {
+  margin-bottom: 0;
+}
+.markdown-content blockquote {
+  border-left: 2px solid var(--subtle-border);
+  padding-left: 12px;
+  color: var(--secondary-ink);
+  font-size: 13px;
+}
+
+/* Links inside markdown — must be visible */
+.markdown-content a {
+  color: var(--primary-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--subtle-border);
+  transition: text-decoration-color 0.15s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .markdown-content a:hover {
+    opacity: 1;
+    text-decoration-color: var(--secondary-ink);
+  }
+}
+
+/* Images inside markdown body — constrained to avoid blowing up the modal */
+.markdown-content img {
+  max-width: 100%;
+  max-height: 240px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  margin: 12px 0;
+  display: block;
 }

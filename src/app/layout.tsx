@@ -1,6 +1,13 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { siteConfig } from '@/site.config';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -13,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" className={inter.variable}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -39,13 +46,12 @@ export default function RootLayout({
       </head>
       <body>
         <div className="core-zone">
-          <main style={{ paddingTop: '40px' }}>
+          <main style={{ paddingTop: '32px' }}>
             {children}
           </main>
           
-          <footer className="terminal-padding" style={{ paddingTop: '64px' }}>
-            <hr />
-            <p className="dimmed" style={{ fontSize: '14px' }}>{siteConfig.footerText}</p>
+          <footer className="terminal-padding" style={{ paddingTop: '40px', borderTop: '1px solid var(--subtle-border)', marginTop: '80px' }}>
+            <p className="dimmed" style={{ fontSize: '13px' }}>{siteConfig.footerText}</p>
           </footer>
         </div>
       </body>
